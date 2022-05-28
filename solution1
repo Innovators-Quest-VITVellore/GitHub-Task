@@ -1,1 +1,41 @@
-Code for question 1
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+char Encode(char c, int k)
+{
+    if(c+k > 'Z' && c < 'a')
+         return('A' + (c+k-'Z'));
+    else if(c+k > 'z')
+        return ('a' + (c + k - 'z'));
+    return c+k;
+}
+
+int main(void)
+{
+    string word, s;
+    int key, shift;
+
+    cin >> word >> key >> shift;
+
+    for(int j=0; j<word.size(); j++)
+    {
+        word[j] = Encode(word[j], key);
+    }
+    s = word;
+    for(int j=0; j<shift; j++)
+    {
+        char temp = word[word.size()-1];
+
+        for(int i=1; i < word.size(); i++)
+        {
+            s[i] = word[i-1];
+        }
+        s[0] = temp;
+
+        word = s;
+    }
+
+    cout << word << endl;
+}

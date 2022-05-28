@@ -1,1 +1,39 @@
-Code for Question 2
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int getNumMatches(int n)
+{
+    int arr[] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+
+    if(n < 0)
+        return (arr[abs(n)] + 1);
+
+    return arr[n];
+}
+
+int main(void)
+{
+    int n;
+    cin >> n;
+    int matches[n];
+
+    for(int i=0; i<n; i++)
+    {
+        int a,b,c,x, res = 0;
+        cin >> a >> b >> c >> x;
+
+        int ans = (a*x) + (b*x) + c;
+
+        while(ans > 0)
+        {
+            res += getNumMatches(ans % 10);
+            ans = ans / 10;
+        }
+        matches[i] = res;
+    }
+
+    for(int i=0; i<n; i++)
+        cout << matches[i] << endl;
+}

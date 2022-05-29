@@ -1,1 +1,27 @@
 Code for question 1
+str=input()
+key=int(input())
+shift=int(input())
+new_str=''
+
+for i in range(len(str)):
+    new_str=new_str+chr(ord(str[i])+key)
+
+new_str_list=[]
+
+for letter in new_str:
+    new_str_list.append(letter)
+
+new_str_list=new_str_list[::-1]
+
+for i in range(shift):
+    new_str_list.append(new_str_list[0])
+    new_str_list.remove(new_str_list[0])
+
+new_str_list=new_str_list[::-1]
+
+encrypted_str=''
+for letter in new_str_list:
+    encrypted_str=encrypted_str+letter
+
+print(encrypted_str)

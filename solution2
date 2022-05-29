@@ -1,1 +1,55 @@
-Code for Question 2
+//Code for Question 2 done in c++
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+class IQUEST2
+{
+public:
+       int T;
+       int a, b, c, x;
+       int arr[10] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+       void numberCase()
+       {
+              cin >> T;
+       }
+       void getter()
+       {
+              cin >> a >> b >> c >> x;
+       }
+       void operate()
+       {
+              int sum;
+              int ans = 0;
+              int k = 0;
+              int arr2[T] = {};
+              for (int i = 1; i <= T; i++)
+              {
+                     getter();
+                     ans = a * x + b * x + c;
+                     if (ans <= 9)
+                     {
+                            arr2[k++] = arr[ans];
+                     }
+                     else
+                     {
+                            while (ans != 0)
+                            {
+                                   int d = ans % 10;
+                                   sum += arr[d];
+                                   ans = ans / 10;
+                            }
+                            arr2[k++] = sum;
+                     }
+                     sum = 0;
+                     ans = 0;
+              }
+              for (int i = 0; i <= k - 1; i++)
+                     cout << arr2[i] << endl;
+       }
+};
+int main()
+{
+       IQUEST2 obj;
+       obj.numberCase();
+       obj.operate();
+}

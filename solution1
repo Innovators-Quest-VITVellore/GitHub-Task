@@ -1,1 +1,42 @@
-Code for question 1
+import java.util.*;
+public class CaesarCipher
+{
+    public static void encrypt(String text, int s , int shift)
+    {
+        String result= "";
+ 
+        for (int i=0; i<text.length(); i++)
+        {
+            if (Character.isUpperCase(text.charAt(i)))
+            {
+                char ch = (char)(((int)text.charAt(i) +
+                                  s - 65) % 26 + 65);
+                result=result+ch;
+            }
+            else
+            {
+                char ch = (char)(((int)text.charAt(i) +
+                                  s - 97) % 26 + 97);
+                result=result+ch;
+            }
+        }
+        shift(result,shift);
+    }
+    public static void shift(String s, int sh){
+        String ns=s;
+        while(sh>0){
+            ns=ns.charAt(s.length()-1)+ns.substring(0,s.length()-1);
+            sh--;
+        }
+        System.out.println(ns);
+    }
+    // Driver code
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String text =sc.nextLine();
+        int key = sc.nextInt();
+        int shift= sc.nextInt();
+        encrypt(text, key, shift);
+    }
+   }

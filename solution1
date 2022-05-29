@@ -1,1 +1,51 @@
-Code for question 1
+//Code for question 1 written in c++
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+using namespace std;
+class IQUEST
+{
+public:
+       string demo;
+       int key;
+       int n;
+       void getstring()
+       {  //getting input string
+              getline(cin, demo);
+       }
+       void getkey()
+       {  //getting input key
+              cin >> key;
+       }
+       void operate();
+       void shift();
+};
+void IQUEST::operate()
+{
+//encoding the word as per key shift
+       int length = demo.length();
+       char ch;
+       for (int i = 0; i <= length - 1; i++)
+       {
+              if ((demo[i] + key) > 122)           //if the encoded character goes beyond the alphabet range
+                     demo[i] = (char)(demo[i] + key - 97);
+              else
+                     demo[i] = (char)(demo[i] + key);
+       }
+}
+void IQUEST::shift()
+{//performing shift ie is actually a circular shift 
+       demo = demo[demo.length() - 1] + demo.substr(0, demo.length() - 1);
+       cout << demo << endl;
+}
+int main()
+{
+       IQUEST obj;
+       obj.getstring();
+       obj.getkey();
+       obj.operate();
+       int n;//getting number of shifts from the user
+       cin >> n;
+       for (int i = 1; i <= n; i++)
+              obj.shift();
+}

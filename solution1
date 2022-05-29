@@ -1,1 +1,27 @@
 Code for question 1
+s='a b c d e f g h i j k l m n o p q r s t u v w x y z'
+l=s.split()
+str1=input()
+key=int(input("Enter key"))
+shift=int(input("Enter shift"))
+for x in range(key):
+    l.append(l[x])
+
+l2=list(str1)
+l3=[]
+for x in l2:
+    for y in l:
+        if x==y:
+            i=l.index(y)
+            l3.append(l[i+key])
+            break
+
+print(l3)
+l4=[]
+
+
+for y in range(len(l3)):
+        l4.append(l3[y-shift])
+
+sq=''.join(l4)
+print(sq)

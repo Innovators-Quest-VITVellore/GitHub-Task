@@ -1,1 +1,25 @@
 Code for question 1
+
+## Author : Izhan
+## encryption program
+
+
+def shift(encrypted_word,b,l):
+    ##shift using slicing
+    new_list=(encrypted_word[l-b:l]+encrypted_word[0:l-b])
+    return new_list
+
+
+word=input()
+a=int(input()) ##key
+b=int(input()) ##shift
+l=len(word) ##length of word
+encrypted_word=[]
+for i in word:
+    d=chr(ord(i)+a)
+    encrypted_word.append(d)
+
+##shifted word
+cipher=shift(encrypted_word,b,l)
+for i in cipher:
+    print(i,end="")

@@ -1,1 +1,27 @@
 Code for Question 2
+
+## Author : Izhan
+## solve expression ax+bx+c
+
+# from the image iam assigning values to the respective no. of matchstick
+matches = {'0':6, '1':2, '2':5, '3':5, '4':4, '5':5, '6':6, '7':3, '8':7, '9':6}
+
+
+def countmatches(solution,l):
+    p = 0
+    for j in range(l):
+        p += (matches[solution[j]])
+    return p
+
+n=int(input()) ## Number of test cases
+L=[] ##final answer to be stored in list
+for i in range(n):
+    a,b,c,x=map(int,input().split())
+    solution=(a*x)+(b*x)+c
+    solution=str(solution)
+    l=len(solution)
+    L.append(countmatches(solution, l))
+    
+## printing the solution
+for j in range(n):
+    print(L[j])

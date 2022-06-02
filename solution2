@@ -1,1 +1,28 @@
-Code for Question 2
+#include <iostream>
+using namespace std;
+int main()
+{
+    int nt; // number of test cases
+    cin >> nt;
+    for (int i = 0; i < nt; i++)
+    {
+        int a, b, c, x;
+        cin >> a >> b >> c >> x;
+        int ans = a * x + b * x + c;                  // finding answer of given equation
+        int arr[10] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6}; // to create the letter 0 we required 6 matches and so on
+        int n = 0;//number of matches
+        while (ans > 0)//Loop use to check all digits present in answer and number of matches it requires
+        {
+            int temp = ans % 10;
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == temp)
+                {
+                    n += arr[i];
+                }
+            }
+            ans = ans / 10;
+        }
+        cout << "Number of matches required = " << n << endl;
+    }
+}

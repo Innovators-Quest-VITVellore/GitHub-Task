@@ -1,1 +1,20 @@
-Code for question 1
+#Code for question 1
+
+text = input("Enter the string: ")
+key=int(input("Enter the key: "))
+text=text.upper()
+encryption = ""
+
+for c in text:
+    c_unicode = ord(c)
+    c_index = ord(c) - ord("A")
+    new_index = (c_index + key) % 26
+    new_unicode = new_index + ord("A")
+    new_character = chr(new_unicode)
+    encryption = encryption + new_character
+shift= int(input("Enter the shift value: ")) 
+Rfirst = encryption[0 : (len(encryption)-shift)] 
+Rsecond = encryption[(len(encryption)-shift) : ] 
+encryption= Rsecond + Rfirst
+print("Plain text:",text)
+print("Encrypted text:",encryption)

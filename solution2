@@ -1,1 +1,56 @@
 Code for Question 2
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+class task2
+{
+public:
+       int num;
+       int a, b, c, x;
+       int arr[10] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+       void fun1()
+       {
+              cin >> num;
+       }
+       void get()
+       {
+              cin >> a >> b >> c >> x;
+       }
+       void fun2()
+       {
+              int sum;
+              int ans = 0;
+              int k = 0;
+              int arr2[num] = {};
+              for (int i = 1; i <= num; i++)
+              {
+                     get();
+                     ans = a * x + b * x + c;
+                     if (ans <= 9)
+                     {
+                            arr2[k++] = arr[ans];
+                     }
+                     else
+                     {
+                            while (ans != 0)
+                            {
+                                   int d = ans % 10;
+                                   sum += arr[d];
+                                   ans = ans / 10;
+                            }
+                            arr2[k++] = sum;
+                     }
+                     sum = 0;
+                     ans = 0;
+              }
+              for (int i = 0; i <= k - 1; i++)
+                     cout << arr2[i] << endl;
+       }
+};
+int main()
+{
+       task2 t1;
+       t1.fun1();
+       t1.fun2();
+       return 0;
+}

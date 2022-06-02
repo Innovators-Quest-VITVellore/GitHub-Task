@@ -1,1 +1,15 @@
-Code for Question 2
+#Code for Question 2
+
+t=int(input("enter number of test cases: "))
+sticks={"0":4,"1":2,"2":5,"3":5,"4":4,"5":5,"6":6,"7":3,"8":7,"9":6}
+for i in range(t):
+    a=int(input("enter value of a: "))
+    b=int(input("enter value of b: "))
+    c=int(input("enter value of c: "))
+    x=int(input("enter value of x: "))
+    ans=a*x+b*x+c
+    ans=str(ans)
+    d=0
+    for i in range(len(ans)):
+        d=d+sticks.get(ans[i])
+    print("Number of matchsticks needed: ",d,"\n")

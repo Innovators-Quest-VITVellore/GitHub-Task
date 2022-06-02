@@ -1,1 +1,37 @@
-Code for question 1
+//Code for question 1
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    string word;
+    string final = "";
+    char temp;
+    int key;
+    int shift;
+    int i, j;
+    cout << "Enter the word " << endl;
+    cin >> word;
+    cout << "Enter the key " << endl;
+    cin >> key;
+    cout << "Enter the shift " << endl;
+    cin >> shift;
+    for (i = 0; i < word.length(); i++)
+    {
+        word[i] = word[i] + key;
+    }
+    cout << "After encrypting \n"
+         << word << endl;
+    for (i = 0; i < shift; i++)
+    {
+        for (j = word.length() - 1; j > 0; j--)
+        {
+            temp = word[j];
+            word[j] = word[j - 1];
+            word[j - 1] = temp;
+        }
+    }
+    cout << "After shifting \n"
+         << word << endl;
+    return 0;
+}

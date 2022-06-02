@@ -1,1 +1,27 @@
 Code for question 1
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char str1[20],str2[20],str3[20],str4[20];
+	int i,len,key,sh;
+	scanf("%s",str1);
+	scanf("%d",&key);
+	scanf("%d",&sh);
+	len=strlen(str1);
+	for(i=0;i<len;i++)
+	{
+		str2[i]=str1[i]+key;
+	}
+	for(i=0;i<sh;i++)
+	{
+		str3[i]=str2[len-sh+i];
+	}
+	for(i=0;i<len-sh;i++)
+	{
+		str4[i]=str2[i];
+	}
+	strcat(str3,str4);
+	printf(str3);
+	return 0;
+}
